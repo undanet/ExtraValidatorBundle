@@ -1,6 +1,6 @@
 <?php
 
-namespace Ideup\ExtraValidatorBundle;
+namespace Undanet\ExtraValidatorBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
