@@ -4,6 +4,6 @@ namespace Undanet\ExtraValidatorBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class IdeupExtraValidatorBundle extends Bundle
+class UndanetExtraValidatorBundle extends Bundle
 {
 }

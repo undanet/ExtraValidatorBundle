@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4: */
 
-namespace Ideup\ExtraValidatorBundle\Validator;
+namespace Undanet\ExtraValidatorBundle\Validator;
 
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Constraint;

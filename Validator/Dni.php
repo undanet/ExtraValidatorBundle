@@ -1,6 +1,6 @@
 <?php
 
-namespace Ideup\ExtraValidatorBundle\Validator;
+namespace Undanet\ExtraValidatorBundle\Validator;
 
 use Symfony\Component\Validator\Constraint;
 
