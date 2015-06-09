@@ -15,7 +15,7 @@ In your composer.json
 
 ```json
 "require": {
-  "ideup/extra-validator-bundle": "dev-master"
+  "undanet/extra-validator-bundle": "dev-master"
 }
 ```
 ... and in your `AppKernel.php` file:
@@ -26,7 +26,7 @@ public function registerBundles()
 {
     $bundles = array(
       ...
-        new Ideup\ExtraValidatorBundle\IdeupExtraValidatorBundle(),
+        new Undanet\ExtraValidatorBundle\UndanetExtraValidatorBundle(),
       );
 }
 ```
@@ -37,7 +37,7 @@ public function registerBundles()
 <?php
 namespace Acme\AcmeDemoBundle\Entity;
 
-use Ideup\ExtraValidatorBundle\Validator as ExtraAssert;
+use Undanet\ExtraValidatorBundle\Validator as ExtraAssert;
 
 class AcmeEntity {
   /**
@@ -56,7 +56,7 @@ You can use both `Assert` and `ExtraAssert` validators in your entities/forms:
 namespace Acme\AcmeDemoBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use Ideup\ExtraValidatorBundle\Validator as ExtraAssert;
+use Undanet\ExtraValidatorBundle\Validator as ExtraAssert;
 
 class AcmeEntity {
   /**
