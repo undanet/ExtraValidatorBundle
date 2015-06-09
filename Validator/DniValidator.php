@@ -32,7 +32,11 @@ class DniValidator extends ConstraintValidator
         $ret = $this->checkDni($value);
 
         if (!$ret) {
-            $this->setMessage($constraint->message);
+            $this->context->buildViolation($constraint->message)
+                ->atPath('foo')
+                ->addViolation();
+
+//            $this->setMessage($constraint->message);
         }
 
         return $ret;
