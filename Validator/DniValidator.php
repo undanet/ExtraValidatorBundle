@@ -33,10 +33,8 @@ class DniValidator extends ConstraintValidator
 
         if (!$ret) {
             $this->context->buildViolation($constraint->message)
-                ->atPath('foo')
+                ->atPath('dni')
                 ->addViolation();
-
-//            $this->setMessage($constraint->message);
         }
 
         return $ret;
