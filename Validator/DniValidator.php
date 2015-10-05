@@ -9,6 +9,7 @@ class DniValidator extends ConstraintValidator
 {
     protected $dniFormatExpr = '/((^[A-Z]{1}[0-9]{7}[A-Z0-9]{1}$|^[T]{1}[A-Z0-9]{8}$)|^[0-9]{8}[A-Z]{1}$)/';
     protected $standardDniExpr = '/(^[0-9]{8}[A-Z]{1}$)/';
+    protected $tNieExpr = '^/[T]{1}[A-Z0-9]{8}$/';
     protected $avaliableLastChar = 'TRWAGMYFPDXBNJZSQVHLCKE';
 
     /**
@@ -78,6 +79,23 @@ class DniValidator extends ConstraintValidator
         }
     }
 
+    protected function checkStandardNie($nie)
+    {
+        $nieCharacters = $this->splitDni($nie);
+
+        //T
+        if (preg_match('/^[T]{1}/', $nie))
+            return ($nieCharacters[8] == preg_match($this->tNieExpr, $nie));
+
+        //XYZ
+        if (preg_match('/^[XYZ]{1}/', $nie))
+            return ($nieCharacters[8] == substr($this->avaliableLastChar, substr(str_replace(array('X','Y','Z'), array('0','1','2'), $nie), 0, 8) % 23, 1));
+
+        return false;
+    }
+
+
+
     /**
      * @param $dni
      * @return boolean
@@ -91,8 +109,8 @@ class DniValidator extends ConstraintValidator
             return false;
         }
 
-        // Standard Dnis
-        if ($this->checkStandardDni($dni) || $this->checkSpecialDni($dni)) {
+        // Standard Dnis and Nie
+        if ($this->checkStandardDni($dni) || $this->checkSpecialDni($dni) || $this->checkStandardNie($dni)) {
             return true;
         }
 
